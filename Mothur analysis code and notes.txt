@@ -1,0 +1,1086 @@
+Mothur Analyses – EAGER Microcosm I
+
+Windows version
+Using Boost
+mothur v.1.44.1
+Last updated: 4/15/20
+by
+Patrick D. Schloss
+Department of Microbiology & Immunology
+University of Michigan
+http://www.mothur.org
+
+When using, please cite:
+Schloss, P.D., et al., Introducing mothur: Open-source, platform-independent, community-supported software for describing and comparing microbial communities. Appl Environ Microbiol, 2009. 75(23):7537-41.
+
+Distributed under the GNU General Public License
+Interactive Mode
+
+
+Join paired reads (make.contigs)
+
+mothur > make.file(inputdir=Fastq files, prefix=eager)
+Setting input directory to: Fastq files\
+
+Output File Names: 
+Fastq files\eager.single.files
+Fastq files\eager.paired.files
+
+mothur > make.contigs(file=EAGER.paired.files, processors=16)
+
+It took 101 secs to assemble 288012 reads.
+
+Group count: 
+Blank1	377
+Blank2	229
+Blank3	520
+Blank4	504
+Blank5	226
+EAG11160092BN	127753
+EAG11160093BN	110326
+EAG11160094BN	112062
+EAG11160095BN	140551
+EAG11160096BN	123585
+EAG11160097BN	117251
+EAG11160098BN	106263
+EAG11160099BN	110047
+EAG11160100BN	87456
+EAG11160101BN	103324
+EAG11160102BN	77370
+EAG11160103BN	77480
+EAG11160107BN	71792
+EAG11160108BN	73448
+EAG11160109BN	107327
+EAG11160110BN	96915
+EAG11160111BN	150537
+EAG11160112BN	128172
+EAG11160113BN	124494
+EAG11160114BN	83062
+EAG11160115BN	172375
+EAG11160116BN	109481
+EAG11160117BN	142770
+EAG11160118BN	141746
+EAG11160122BN	98485
+EAG11160123BN	137693
+EAG11160124BN	79593
+EAG11160125BN	73876
+EAG11160126BN	74101
+EAG11160127BN	142701
+EAG11160128BN	86570
+EAG11160129BN	76560
+EAG11160130BN	110840
+EAG11160131BN	119502
+EAG11160132BN	109452
+EAG11160133BN	129838
+EAG11160365BN	112242
+EAG11160366BN	137036
+EAG11160367BN	83576
+EAG11160368BN	404
+EAG11160369BN	480
+EAG11160370BN	377
+EAG12160118BN	113328
+EAG12160119BN	181012
+EAG12160120BN	110757
+EAG12160121BN	107660
+EAG12160122BN	90890
+EAG12160123BN	98196
+EAG12160124BN	87695
+EAG12160125BN	96435
+EAG12160126BN	81346
+EAG12160127BN	86241
+EAG12160128BN	88326
+EAG12160129BN	91766
+EAG12160133BN	248572
+EAG12160134BN	193773
+EAG12160135BN	157390
+EAG12160136BN	157111
+EAG12160137BN	183642
+EAG12160138BN	97586
+EAG12160139BN	157979
+EAG12160140BN	118693
+EAG12160141BN	161508
+EAG12160142BN	192247
+EAG12160143BN	133065
+EAG12160144BN	190622
+EAG12160148BN	149479
+EAG12160149BN	102132
+EAG12160150BN	103758
+EAG12160151BN	164782
+EAG12160152BN	125668
+EAG12160153BN	169865
+EAG12160154BN	124728
+EAG12160155BN	100895
+EAG12160156BN	96287
+EAG12160157BN	111587
+EAG12160158BN	93643
+EAG12160159BN	323686
+LDF1	225055
+LDF2	141810
+LDF3	135042
+PCRblank	211
+SDF1	16004
+SDF2	5325
+SDF3	607
+ZymoControl	288012
+
+Total of all groups is 9975185
+
+It took 4358 secs to process 9975185 sequences.
+
+Output File Names: 
+EAGER.paired.trim.contigs.fasta
+EAGER.paired.scrap.contigs.fasta
+EAGER.paired.contigs.report
+EAGER.paired.contigs.groups
+
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       35      35      0       2       1
+2.5%-tile:      1       291     291     0       4       249380
+25%-tile:       1       292     292     0       4       2493797
+Median:         1       292     292     0       5       4987593
+75%-tile:       1       292     292     0       5       7481389
+97.5%-tile:     1       293     293     5       8       9725806
+Maximum:        1       500     500     300     249     9975185
+Mean:   1       293     293     0       4
+# of Seqs:      9975185
+
+##Primers still on (length should be closer to 250)
+
+
+Remove too long, too short and ambig reads (screen.seqs)
+screen.seqs(fasta=eager.paired.trim.contigs.fasta, group=eager.paired.contigs.group, maxambig=0, polymer= maxlength=293, minlength=291, maxhomop=8)
+
+Output File Names:
+eager.paired.trim.contigs.good.fasta
+eager.paired.trim.contigs.bad.accnos
+eager.paired.contigs.good.good.groups
+
+mothur > summary.seqs(fasta=current)
+
+Using eager.paired.trim.contigs.good.fasta as input file for the fasta parameter.
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       291     291     0       3       1
+2.5%-tile:      1       291     291     0       4       221011
+25%-tile:       1       292     292     0       4       2210107
+Median:         1       292     292     0       5       4420214
+75%-tile:       1       292     292     0       5       6630320
+97.5%-tile:     1       293     293     0       8       8619416
+Maximum:        1       293     293     0       8       8840426
+Mean:   1       292     292     0       4
+# of Seqs:      8840426
+
+It took 167 secs to summarize 8840426 sequences.
+sreen.seqs step removed about 11% of sequences.
+
+
+Remove Primers (trim.seqs)
+
+Note: Previouslty tried (but failed): 
+make.contigs (file=eager.paired.files, oligos=EMPV4all.oligos.txt, processors=4)
+##tried this with both redundant primers (EMPV4.oligos.txt) and all possible primer combinations spelled out with ATCG (EMPV4all.oligos.txt)
+#With degenerate primers (EMPV4.oligos.txt): kept only 4% of reads, and those reads STILL contained primers.
+#With all primers (EMPV4all.oligos.txt): kept 0% of reads
+
+
+mothur > trim.seqs(fasta=current, oligos=EMPV4.oligos)
+
+#oligos file looks like: 
+forward GTGYCAGCMGCCGCGGTAA 
+reverse GGACTACNVGGGTWTCTAAT
+
+Removing group: scrap because all sequences have been removed.
+It took 244 secs to trim 8840426 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.fasta
+eager.paired.trim.contigs.good.scrap.fasta
+
+mothur > summary.seqs(fasta=current)
+
+Using eager.paired.trim.contigs.good.trim.fasta as input file for the fasta parameter.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       252     252     0       3       1
+2.5%-tile:      1       252     252     0       4       155608
+25%-tile:       1       253     253     0       4       1556077
+Median:         1       253     253     0       5       3112154
+75%-tile:       1       253     253     0       5       4668230
+97.5%-tile:     1       254     254     0       8       6068699
+Maximum:        1       254     254     0       8       6224306
+Mean:   1       253     253     0       4
+# of Seqs:      6224306
+
+It took 120 secs to summarize 6224306 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.summary
+
+#alt option for primer removal: chop.seqs (do this after trimming to equal length)
+#Forward primer is 19 nt long, #Reverse primer is 20 nt long
+
+Get unique (unique.seqs)
+mothur > Unique.seqs (fasta=eager.paired.trim.contigs.good.trim.fasta)
+
+Output File Names: 
+eager.paired.trim.contigs.good.trim.names
+eager.paired.trim.contigs.good.trim.unique.fasta
+
+mothur > count.seqs(name=eager.paired.trim.contigs.good.trim.names, group=eager.paired.contigs.good.good.groups)
+
+It took 108 secs to create a table for 6224306 sequences.
+Total number of sequences: 6224306
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.count_table
+
+mothur > summary.seqs(fasta=eager.paired.trim.contigs.good.trim.unique.fasta, count= eager.paired.trim.contigs.good.trim.count_table, processors=32)
+
+               Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       252     252     0       3       1
+2.5%-tile:      1       252     252     0       4       155608
+25%-tile:       1       253     253     0       4       1556077
+Median:         1       253     253     0       5       3112154
+75%-tile:       1       253     253     0       5       4668230
+97.5%-tile:     1       254     254     0       8       6068699
+Maximum:        1       254     254     0       8       6224306
+Mean:   1       253     253     0       4
+# of unique seqs:       530065
+total # of seqs:        6224306
+
+It took 32 secs to summarize 6224306 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.summary
+
+Align sequences (align.seqs)
+mothur > pcr.seqs(fasta=silva.bacteria.fasta, start=11894, end=25319, keepdots=F)
+
+It took 28 secs to screen 14956 sequences.
+Output File Names:
+silva.bacteria.pcr.fasta
+
+mothur > rename.file(input=silva.bacteria.pcr.fasta, new=silva.v4.fasta)
+mothur > summary.seqs(fasta=silva.v4.fasta)
+
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       13424   270     0       3       1
+2.5%-tile:      1       13425   292     0       4       374
+25%-tile:       1       13425   293     0       4       3740
+Median:         1       13425   293     0       4       7479
+75%-tile:       1       13425   293     0       5       11218
+97.5%-tile:     1       13425   294     1       6       14583
+Maximum:        3       13425   351     5       9       14956
+Mean:   1       13424   292     0       4
+# of Seqs:      14956
+
+It took 10 secs to summarize 14956 sequences.
+
+mothur > align.seqs(fasta=eager.paired.trim.contigs.good.trim.unique.fasta, reference=silva.v4.fasta)
+It took 220 secs to align 530065 sequences.
+[WARNING]: 2 of your sequences generated alignments that eliminated too many bases, a list is provided in eager.paired.trim.contigs.good.trim.unique.flip.accnos.
+[NOTE]: 2 of your sequences were reversed to produce a better alignment.
+It took 226 seconds to align 530065 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.align
+eager.paired.trim.contigs.good.trim.unique.align.report
+eager.paired.trim.contigs.good.trim.unique.flip.accnos
+
+mothur > summary.seqs(eager.paired.trim.contigs.good.trim.unique.align, count= eager.paired.trim.contigs.good.trim.count_table)
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1961    10543   3       0       2       1
+2.5%-tile:      1968    11550   252     0       4       155608
+25%-tile:       1968    11550   253     0       4       1556077
+Median:         1968    11550   253     0       5       3112154
+75%-tile:       1968    11550   253     0       5       4668230
+97.5%-tile:     1968    11550   254     0       8       6068699
+Maximum:        13422   13425   254     0       8       6224306
+Mean:   1968    11549   253     0       4
+# of unique seqs:       530065
+total # of seqs:        6224306
+
+It took 255 secs to summarize 6224306 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.summary
+
+
+mothur > screen.seqs(fasta=current, count=current, summary=current, start=1968, end=11550)
+Using eager.paired.trim.contigs.good.trim.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.align as input file for the fasta parameter.
+Using eager.paired.trim.contigs.good.trim.unique.summary as input file for the summary parameter.
+
+Running command: remove.seqs(accnos=eager.paired.trim.contigs.good.trim.unique.bad.accnos.temp, count=eager.paired.trim.contigs.good.trim.count_table)
+Removed 9552 sequences from your count file.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.pick.count_table
+
+/******************************************/
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.summary
+eager.paired.trim.contigs.good.trim.unique.good.align
+eager.paired.trim.contigs.good.trim.unique.bad.accnos
+eager.paired.trim.contigs.good.trim.good.count_table
+
+
+It took 279 secs to screen 530065 sequences.
+
+mothur > summary.seqs(fasta=current, count=current)
+
+Using eager.paired.trim.contigs.good.trim.good.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.align as input file for the fasta parameter.
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1961    11550   252     0       3       1
+2.5%-tile:      1968    11550   252     0       4       155369
+25%-tile:       1968    11550   253     0       4       1553689
+Median:         1968    11550   253     0       5       3107378
+75%-tile:       1968    11550   253     0       5       4661066
+97.5%-tile:     1968    11550   254     0       8       6059386
+Maximum:        1968    11552   254     0       8       6214754
+Mean:   1967    11550   253     0       4
+# of unique seqs:       527959
+total # of seqs:        6214754
+
+It took 248 secs to summarize 6214754 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.summary
+
+mothur > filter.seqs(fasta=current, vertical=T, trump=.)
+Using eager.paired.trim.contigs.good.trim.unique.good.align as input file for the fasta parameter.
+
+Length of filtered alignment: 509
+Number of columns removed: 12916
+Length of the original alignment: 13425
+Number of sequences used to construct filter: 527959
+
+Output File Names:
+eager.filter
+eager.paired.trim.contigs.good.trim.unique.good.filter.fasta
+
+mothur > unique.seqs(fasta=current, count=current)
+Using eager.paired.trim.contigs.good.trim.good.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.fasta as input file for the fasta parameter.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.count_table
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.fasta
+
+mothur > summary.seqs(fasta=current, count=current)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.fasta as input file for the fasta parameter.
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       509     248     0       3       1
+2.5%-tile:      1       509     252     0       4       155369
+25%-tile:       1       509     253     0       4       1553689
+Median:         1       509     253     0       5       3107378
+75%-tile:       1       509     253     0       5       4661066
+97.5%-tile:     1       509     254     0       8       6059386
+Maximum:        1       509     254     0       8       6214754
+Mean:   1       509     253     0       4
+# of unique seqs:       527956
+total # of seqs:        6214754
+
+It took 35 secs to summarize 6214754 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.summary
+
+
+Pre-cluster (pre.cluster)
+mothur > pre.cluster(fasta=current, count=current, diffs=2)
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.fasta as input file for the fasta parameter.
+
+mothur > summary.seqs(fasta=current, count=current)
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.fasta as input file for the fasta parameter.
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       509     248     0       3       1
+2.5%-tile:      1       509     252     0       4       155369
+25%-tile:       1       509     253     0       4       1553689
+Median:         1       509     253     0       5       3107378
+75%-tile:       1       509     253     0       5       4661066
+97.5%-tile:     1       509     254     0       8       6059386
+Maximum:        1       509     254     0       8       6214754
+Mean:   1       509     253     0       4
+# of unique seqs:       226128
+total # of seqs:        6214754
+
+It took 15 secs to summarize 6214754 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.summary
+
+Chimera ID and removal (chimera.vsearch)
+mothur > chimera.vsearch(fasta=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.fasta, count=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.count_table, dereplicate=t, processors=32)
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.count_table
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.chimeras
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.accnos
+
+mothur > remove.seqs(fasta=current, accnos=current)
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.accnos as input file for the accnos parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.fasta as input file for the fasta parameter.
+
+mothur > summary.seqs(fasta=current, count=current)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.fasta as input file for the fasta parameter.
+
+Using 32 processors.
+
+                Start   End     NBases  Ambigs  Polymer NumSeqs
+Minimum:        1       509     248     0       3       1
+2.5%-tile:      1       509     252     0       4       152499
+25%-tile:       1       509     253     0       4       1524990
+Median:         1       509     253     0       5       3049979
+75%-tile:       1       509     253     0       5       4574968
+97.5%-tile:     1       509     254     0       8       5947459
+Maximum:        1       509     254     0       8       6099957
+Mean:   1       509     253     0       4
+# of unique seqs:       156799
+total # of seqs:        6099957
+
+It took 10 secs to summarize 6099957 sequences.
+#** ca. 2% reduction in sequences from chimera screen.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.summary
+
+Classify and remove oddballs (classify.seqs and remove.lineage)
+
+mothur > classify.seqs(fasta=current, count=current, reference=trainset09_032012.pds.fast, taxonomy=trainset9_032012.pds.tax, cutoff=80)
+
+mothur > remove.lineage(fasta=current, count=current, taxonomy=current, taxon=Chloroplast-Mitochondria-unknown-Eukaryota)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.fasta as input file for the fasta parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.taxonomy as input file for the taxonomy parameter.
+
+Removed 722 sequences from your fasta file.
+Removed 4352 sequences from your count file.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.fasta
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table
+
+/******************************************/
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.accnos
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.fasta
+
+
+mothur > summary.tax(taxonomy=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy, count=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table)
+
+
+Assess error rates and look at ZymoControl (seq.error)
+
+mothur > get.groups(count=current, fasta=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.fasta, groups=ZymoControl)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table as input file for the count parameter.
+Selected 188190 sequences from your count file.
+Selected 280 sequences from your fasta file.
+
+Output File names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.fasta
+
+mothur > seq.error(fasta=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.fasta, count=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table, reference=ZymoSTD.fasta, aligned=F)
+
+[WARNING]: 4 reference sequences have ambiguous bases, these bases will be ignored.
+100
+200
+280
+
+Multiply error rate by 100 to obtain the percent sequencing errors.
+Overall error rate:     0
+Errors  Sequences
+0       188190
+1       0
+2       0
+3       0
+4       0
+5       0
+6       0
+7       0
+8       0
+9       0
+10      0
+It took 128 secs to check 280 sequences.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.summary
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.seq
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.chimera
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.seq.forward
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.seq.reverse
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.count
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.matrix
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.error.ref
+
+
+mothur > dist.seqs(fasta=current, cutoff=0.03, processors=32)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.fasta as input file for the fasta parameter.
+
+Using 32 processors.
+
+Sequence        Time    Num_Dists_Below_Cutoff
+84      0       417
+69      0       745
+100     0       135
+97      0       587
+120     0       579
+129     0       361
+109     0       601
+147     0       440
+139     0       669
+155     0       433
+170     0       157
+163     0       358
+177     0       483
+184     0       530
+196     0       369
+200     0       268
+214     0       272
+209     0       330
+220     0       157
+190     0       709
+225     0       324
+203     0       405
+231     0       548
+236     0       583
+246     0       200
+241     0       473
+251     0       460
+256     0       439
+260     0       481
+0       0       0
+265     0       382
+270     0       328
+274     0       642
+279     0       844
+48      0       626
+
+It took 0 secs to find distances for 280 sequences. 14932 distances below cutoff 0.03.
+
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.dist
+
+
+mothur > cluster(column=current, count=current)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.dist as input file for the column parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+
+Using 32 processors.
+
+You did not set a cutoff, using 0.03.
+
+Clustering eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.dist
+
+
+iter    time    label   num_otus        cutoff  tp      tn      fp      fn      sensitivity     specificity     ppv    npv      fdr     accuracy        mcc     f1score
+
+0.03
+0       0       0.03    280     0.03    0       24128   0       14932   0       1       0       0.617716        1      0.617716 0       0
+1       0       0.03    63      0.03    14084   23683   445     848     0.943209        0.981557        0.969372       0.965431 0.969372        0.966897        0.929771        0.956111
+2       0       0.03    60      0.03    14235   23655   473     697     0.953322        0.980396        0.967841       0.971378 0.967841        0.970046        0.936464        0.960526
+3       0       0.03    60      0.03    14236   23655   473     696     0.953389        0.980396        0.967843       0.971418 0.967843        0.970072        0.936519        0.960561
+
+
+It took 0 seconds to cluster
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.steps
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.sensspec
+
+
+mothur > make.shared(list=current, count=current, label=0.03)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list as input file for the list parameter.
+0.03
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.shared
+
+
+mothur > rarefaction.single(shared=current)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.shared as input file for the shared parameter.
+
+Using 32 processors.
+0.03
+
+It took 59 secs to run rarefaction.single.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.groups.rarefaction
+
+
+mothur > classify.otu(list=current, count=current, taxonomy=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy, label=0.03)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list as input file for the list parameter.
+0.03
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.0.03.cons.taxonomy
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.0.03.cons.tax.summary
+
+
+
+Comparing to Zymo Standard
+
+Sequence error rate: 0%
+
+There were 60 OTUs detected (should be 8 bacteria (plus 2 euks)). 17 OTUs had 2+ reads. 10 OTUs had 3+reads. 8 OTUs had >3 reads.
+
+Should be: 
+Bacillus subtilis
+Enterococcus faecalis* came back as unclassified entero
+Eschericia coli *uncleassified entero
+Lactobacillus fermentum
+Listeria monocytogenes
+Pseudomonas aeruginosa
+Salmonella enterica
+Staphylococcus aureus *DID NOT FIND
+
+Also includes eukaryotic sequences: 
+Cryptococcus neoformans (18S and mito) *DID NOT FIND
+Saccharomyces cerevisiae (18S and mito) *DID NOT FIND
+
+OTU	Size	Taxonomy
+Otu01	169664	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu02	14194	Bacteria(100);"Proteobacteria"(100);Gammaproteobacteria(100);Pseudomonadales(100);Pseudomonadaceae(100);Pseudomonas(100);
+Otu03	3642	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Bacillaceae_1(96);Bacillus(96);
+Otu04	290	Bacteria(100);"Proteobacteria"(100);Gammaproteobacteria(100);"Enterobacteriales"(100);Enterobacteriaceae(100);Enterobacteriaceae_unclassified(100);
+Otu05	267	Bacteria(100);"Proteobacteria"(100);Gammaproteobacteria(100);"Enterobacteriales"(100);Enterobacteriaceae(100);Salmonella(98);
+Otu06	49	Bacteria(100);Firmicutes(100);Bacilli(100);Lactobacillales(100);Lactobacillaceae(100);Lactobacillus(100);
+Otu07	15	Bacteria(100);Firmicutes(100);Bacilli(100);Lactobacillales(87);Enterococcaceae(87);Enterococcaceae_unclassified(74);
+Otu08	6	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu09	3	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu10	3	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Bacillales_unclassified(67);Bacillales_unclassified(67);
+Otu11	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Bacillales_unclassified(100);Bacillales_unclassified(100);
+Otu12	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu13	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu14	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Bacillales_unclassified(100);Bacillales_unclassified(100);
+Otu15	2	Bacteria(100);"Actinobacteria"(100);Actinobacteria(100);Actinomycetales(100);Micrococcaceae(100);Arthrobacter(100);
+Otu16	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Listeriaceae(100);Listeria(100);
+Otu17	2	Bacteria(100);Firmicutes(100);Bacilli(100);Bacillales(100);Bacillales_unclassified(100);Bacillales_unclassified(100);
+
+
+
+
+Remove Groups – Blanks and Positive Controls
+
+mothur > count.groups(count=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table) 
+
+Blank1 contains 111.
+Blank2 contains 49.
+Blank3 contains 120.
+Blank4 contains 96.
+Blank5 contains 56.
+EAG11160092BN contains 81545.
+EAG11160093BN contains 69801.
+EAG11160094BN contains 71870.
+EAG11160095BN contains 83846.
+EAG11160096BN contains 74588.
+EAG11160097BN contains 71050.
+EAG11160098BN contains 63980.
+EAG11160099BN contains 66017.
+EAG11160100BN contains 53465.
+EAG11160101BN contains 61654.
+EAG11160102BN contains 47338.
+EAG11160103BN contains 47040.
+EAG11160107BN contains 45385.
+EAG11160108BN contains 46500.
+EAG11160109BN contains 68086.
+EAG11160110BN contains 58776.
+EAG11160111BN contains 90560.
+EAG11160112BN contains 76969.
+EAG11160113BN contains 74221.
+EAG11160114BN contains 49954.
+EAG11160115BN contains 103618.
+EAG11160116BN contains 65987.
+EAG11160117BN contains 86360.
+EAG11160118BN contains 86297.
+EAG11160122BN contains 62180.
+EAG11160123BN contains 87181.
+EAG11160124BN contains 50132.
+EAG11160125BN contains 44340.
+EAG11160126BN contains 45020.
+EAG11160127BN contains 86197.
+EAG11160128BN contains 52784.
+EAG11160129BN contains 46383.
+EAG11160130BN contains 67277.
+EAG11160131BN contains 72187.
+EAG11160132BN contains 65384.
+EAG11160133BN contains 78966.
+EAG11160365BN contains 67910.
+EAG11160366BN contains 83708.
+EAG11160367BN contains 50143.
+EAG11160368BN contains 71.
+EAG11160369BN contains 101.
+EAG11160370BN contains 67.
+EAG12160118BN contains 70967.
+EAG12160119BN contains 113443.
+EAG12160120BN contains 70204.
+EAG12160121BN contains 64646.
+EAG12160122BN contains 55015.
+EAG12160123BN contains 59400.
+EAG12160124BN contains 53201.
+EAG12160125BN contains 58316.
+EAG12160126BN contains 48868.
+EAG12160127BN contains 52786.
+EAG12160128BN contains 53733.
+EAG12160129BN contains 55664.
+EAG12160133BN contains 155606.
+EAG12160134BN contains 119447.
+EAG12160135BN contains 96157.
+EAG12160136BN contains 94398.
+EAG12160137BN contains 111006.
+EAG12160138BN contains 58686.
+EAG12160139BN contains 95304.
+EAG12160140BN contains 70862.
+EAG12160141BN contains 97078.
+EAG12160142BN contains 114292.
+EAG12160143BN contains 78022.
+EAG12160144BN contains 114020.
+EAG12160148BN contains 93625.
+EAG12160149BN contains 64241.
+EAG12160150BN contains 64725.
+EAG12160151BN contains 99401.
+EAG12160152BN contains 75599.
+EAG12160153BN contains 102676.
+EAG12160154BN contains 75428.
+EAG12160155BN contains 61318.
+EAG12160156BN contains 58740.
+EAG12160157BN contains 67014.
+EAG12160158BN contains 55228.
+EAG12160159BN contains 190852.
+LDF1 contains 143327.
+LDF2 contains 90130.
+LDF3 contains 85738.
+PCRblank contains 46.
+SDF1 contains 9602.
+SDF2 contains 3128.
+SDF3 contains 106.
+ZymoControl contains 188190.
+
+Size of smallest group: 46.
+
+Total seqs: 6095605.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count.summary
+
+NOTE:  The three low sequencing libraries are the autoclaved soil!!!
+EAG11160368BN
+EAG11160369BN
+EAG11160370BN
+We will want to remove these and the sterile decomp fluid (SDF) samples eventually… but let’s see what’s in them first!
+
+
+#need to remove: 
+Blank1
+Blank2
+Blank3
+Blank4
+Blank5
+PCRblank	
+ZymoControl	
+
+mothur > remove.groups(count=current, fasta=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.fasta, taxonomy=current, groups=Blank1-Blank2-Blank3-Blank4-Blank5-PCRblank-ZymoControl)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.taxonomy as input file for the taxonomy parameter.
+Removed 188668 sequences from your count file.
+Removed 365 sequences from your fasta file.
+Removed 365 sequences from your taxonomy file.
+
+Output File names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.fasta
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy
+
+Total seqs: 5906937
+
+
+Cluster into OTUs (dist.seqs, make.shared, classify.otu)
+
+mothur > dist.seqs(fasta=current, cutoff=0.03)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.fasta as input file for the fasta parameter.
+
+It took 7890 secs to find distances for 155712 sequences. 7786931 distances below cutoff 0.03.
+
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.dist
+
+mothur > cluster(column=current, count=current)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.dist as input file for the column parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+
+It took 340 seconds to cluster
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.steps
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.sensspec
+
+
+mothur > make.shared(list=current, count=current, label=0.03)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list as input file for the list parameter.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.shared
+
+mothur > classify.otu(list=current, count=current, taxonomy=eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pds.wang.pick.pick.taxonomy, label=0.03)
+
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.denovo.vsearch.pick.pick.pick.count_table as input file for the count parameter.
+Using eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.list as input file for the list parameter.
+
+Output File Names:
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.0.03.cons.taxonomy
+eager.paired.trim.contigs.good.trim.unique.good.filter.unique.precluster.pick.pick.pick.opti_mcc.0.03.cons.tax.summary
+
+Number of OTUs: 23,205
+
+Rarefying to smallest group size
+
+mothur > count.groups(shared=current)
+
+Using eager.opti_mcc.shared as input file for the shared parameter.
+EAG11160092BN contains 81545.
+EAG11160093BN contains 69801.
+EAG11160094BN contains 71870.
+EAG11160095BN contains 83846.
+EAG11160096BN contains 74588.
+EAG11160097BN contains 71050.
+EAG11160098BN contains 63980.
+EAG11160099BN contains 66017.
+EAG11160100BN contains 53465.
+EAG11160101BN contains 61654.
+EAG11160102BN contains 47338.
+EAG11160103BN contains 47040.
+EAG11160107BN contains 45385.
+EAG11160108BN contains 46500.
+EAG11160109BN contains 68086.
+EAG11160110BN contains 58776.
+EAG11160111BN contains 90560.
+EAG11160112BN contains 76969.
+EAG11160113BN contains 74221.
+EAG11160114BN contains 49954.
+EAG11160115BN contains 103618.
+EAG11160116BN contains 65987.
+EAG11160117BN contains 86360.
+EAG11160118BN contains 86297.
+EAG11160122BN contains 62180.
+EAG11160123BN contains 87181.
+EAG11160124BN contains 50132.
+EAG11160125BN contains 44340.
+EAG11160126BN contains 45020.
+EAG11160127BN contains 86197.
+EAG11160128BN contains 52784.
+EAG11160129BN contains 46383.
+EAG11160130BN contains 67277.
+EAG11160131BN contains 72187.
+EAG11160132BN contains 65384.
+EAG11160133BN contains 78966.
+EAG11160365BN contains 67910.
+EAG11160366BN contains 83708.
+EAG11160367BN contains 50143.
+EAG11160368BN contains 71.
+EAG11160369BN contains 101.
+EAG11160370BN contains 67.
+EAG12160118BN contains 70967.
+EAG12160119BN contains 113443.
+EAG12160120BN contains 70204.
+EAG12160121BN contains 64646.
+EAG12160122BN contains 55015.
+EAG12160123BN contains 59400.
+EAG12160124BN contains 53201.
+EAG12160125BN contains 58316.
+EAG12160126BN contains 48868.
+EAG12160127BN contains 52786.
+EAG12160128BN contains 53733.
+EAG12160129BN contains 55664.
+EAG12160133BN contains 155606.
+EAG12160134BN contains 119447.
+EAG12160135BN contains 96157.
+EAG12160136BN contains 94398.
+EAG12160137BN contains 111006.
+EAG12160138BN contains 58686.
+EAG12160139BN contains 95304.
+EAG12160140BN contains 70862.
+EAG12160141BN contains 97078.
+EAG12160142BN contains 114292.
+EAG12160143BN contains 78022.
+EAG12160144BN contains 114020.
+EAG12160148BN contains 93625.
+EAG12160149BN contains 64241.
+EAG12160150BN contains 64725.
+EAG12160151BN contains 99401.
+EAG12160152BN contains 75599.
+EAG12160153BN contains 102676.
+EAG12160154BN contains 75428.
+EAG12160155BN contains 61318.
+EAG12160156BN contains 58740.
+EAG12160157BN contains 67014.
+EAG12160158BN contains 55228.
+EAG12160159BN contains 190852.
+LDF1 contains 143327.
+LDF2 contains 90130.
+LDF3 contains 85738.
+SDF1 contains 9602.
+SDF2 contains 3128.
+SDF3 contains 106.
+
+Size of smallest group: 67.
+
+Total seqs: 5906937.
+
+Output File Names:
+eager.opti_mcc.count.summary
+
+
+#smallest group (not including sterile soil and sterile decomp fluid samples): 44340
+
+mothur > sub.sample(shared=current, size=44340)
+
+Using eager.opti_mcc.shared as input file for the shared parameter.
+0.03
+EAG11160368BN contains 71. Eliminating.
+EAG11160369BN contains 101. Eliminating.
+EAG11160370BN contains 67. Eliminating.
+SDF1 contains 9602. Eliminating.
+SDF2 contains 3128. Eliminating.
+SDF3 contains 106. Eliminating.
+Sampling 44340 from each group.
+
+Output File Names:
+eager.opti_mcc.0.03.subsample.shared
+
+mothur > rarefaction.single(shared=eager.opti_mcc.0.03.subsample.shared, calc=nseqs-coverage-sobs-chao-invsimpson)
+
+mothur > summary.single(shared=eager.opti_mcc.0.03.subsample.shared, calc=nseqs-coverage-sobs-chao-invsimpson)
+
+Means across all samples (not including sterile controls): 
+Nseqs = 44340
+Coverage = 97.34%
+Sobs = 2800
+Chao = 4476
+InvSimpson 90.3
+
+
+Remove OTUs with only one or two sequences 
+Because everything was done in triplicate, assume that if we don’t see it at least three times, its spurious/not important. 
+
+mothur > filter.shared(shared=eager.opti_mcc.0.03.subsample.shared, mintotal=3, makerare=f, label=0.03)
+
+Removed 9184 OTUs.
+Number of OTUs: 10243
+
+Output File Names:
+eager.opti_mcc.0.03.subsample.0.03.filter.shared
+
+Re-run alpha stats for kicks: 
+mothur > summary.single(shared=eager.opti_mcc.0.03.subsample.0.03.filter.shared, calc=nseqs-coverage-sobs-chao-invsimpson)
+
+Means across all samples (not including sterile controls): 
+Nseqs = 44063
+Coverage = 97.64%
+Sobs = 2656
+Chao = 3973
+InvSimpson = 89.5
+
+
+
+
+R Analyses
+
+R studio version 1.3.1056
+R version 4.0.2
+Phyloseq package installed version 1.24.2
+
+
+> setwd("D:/Project - EAGER Microcosms I/EAGER Microcosm I 16S/R analyses")
+> getwd()
+[1] "D:/Project - EAGER Microcosms I/EAGER Microcosm I 16S/R analyses"
+
+
+
+alpha diversity plots and analysis
+
+Using summary.single output from filtered data (1s and 2s removed)
+
+> aov<-aov(chao~Day+Treatment+Temperature, data=alpha3)
+> summary(aov)
+             Df    Sum Sq  Mean Sq F value
+Day           1     21831    21831   0.004
+Treatment     5 183219208 36643842   6.727
+Temperature   2   1308519   654259   0.120
+Residuals   147 800747425  5447261        
+              Pr(>F)    
+Day            0.950    
+Treatment   1.13e-05 ***
+Temperature    0.887    
+Residuals               
+---
+Signif. codes:  
+  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’
+  0.1 ‘ ’ 1
+
+
+
+Phyloseq
+
+See R file
+
+
+SourceTracker
+
+Following method here: https://github.com/biota/sourcetracker2
+
+#Convert mothur shared file into Qiime format biom file: 
+mothur > make.biom(shared=eager.opti_mcc.0.03.subsample.shared)
+Output File Names:
+eager.opti_mcc.0.03.subsample.0.03.biom
+
+
+
+
+
