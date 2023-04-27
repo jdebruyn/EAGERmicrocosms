@@ -4,6 +4,6 @@ Data and codes from microcosm experiment described in Keenan et al. XXXX. Microb
 Contents 
 mothur output files: eager.opti_mcc.0.03.cons.taxonomy, eager.opti_mcc.0.03.subsample.shared
 
-R analyses: eager16S.R, eager.metadata.csv
+R analyses: eager16S.R, eager.metadata.csv, FEAST.R
 
 
